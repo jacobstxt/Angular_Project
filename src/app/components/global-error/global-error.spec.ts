@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CategoryCreate } from './create';
+import { GlobalError } from './global-error';
 
-describe('Create', () => {
-  let component: CategoryCreate;
-  let fixture: ComponentFixture<CategoryCreate>;
+describe('GlobalErrorService', () => {
+  let component: GlobalError;
+  let fixture: ComponentFixture<GlobalError>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CategoryCreate]
+      imports: [GlobalError]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CategoryCreate);
+    fixture = TestBed.createComponent(GlobalError);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
