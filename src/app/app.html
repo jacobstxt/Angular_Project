@@ -1,18 +1,33 @@
 <header data-bs-theme="dark">
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
-      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-              aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span
-        class="navbar-toggler-icon"></span></button>
-      <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+
+      <a class="navbar-brand" routerLink="/">
+        <img src="https://www.atbmarket.com/images/svg/logo.svg" alt="АТБ" style="height: 40px;">
+      </a>
+
+      <!-- кнопка-бургер -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- навігація -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+          <li class="nav-item">
+
+
+
+          </li>
         </ul>
 
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" aria-current="page" routerLink="/login">Вхід</a></li>
-          <li class="nav-item"><a class="nav-link" aria-current="page" routerLink="/register">Реєстрація</a></li>
-        </ul>
+        <!-- правий блок -->
+        <div class="d-flex ms-auto">
+          <a class="btn btn-outline-light me-2" routerLink="/login">Вхід</a>
+          <a class="btn btn-outline-light" routerLink="/register">Реєстрація</a>
+        </div>
       </div>
     </div>
   </nav>
@@ -20,6 +35,8 @@
 
 <main>
   <div class="container mt-4">
+    <app-loading></app-loading>
+    <app-global-error></app-global-error>
     <router-outlet />
   </div>
 </main>
