@@ -7,10 +7,14 @@ import {CategoryEdit} from './pages/category/edit/edit';
 
 export const routes: Routes = [
   {path: 'home', component: Home},
-  {path: 'login', component: Login},
-  {path: 'register', component: Register},
+  {
+    path: 'account',
+    children: [
+      { path: 'login', component: Login },
+      { path: 'register', component: Register }
+    ]
+  },
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-
   {
     path: 'category',
     children: [

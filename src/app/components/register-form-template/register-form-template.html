@@ -1,0 +1,57 @@
+<div class="min-vh-100 d-flex align-items-center justify-content-center">
+  <div class="card shadow-lg p-4 rounded-4" style="max-width: 600px; width: 100%;">
+    <h2 class="text-center mb-4 fw-bold">Реєстрація</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" formControlName="email" class="form-control" placeholder="Введіть email">
+        <div class="text-danger mt-1" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+          <small *ngIf="registerForm.get('email')?.errors?.['required']">Email обов'язковий</small>
+          <small *ngIf="registerForm.get('email')?.errors?.['email']">Невірний формат email</small>
+        </div>
+      </div>
+
+      <div class="row g-3 mb-3">
+          <div class="col">
+            <label for="firstName" class="form-label">Ім'я</label>
+            <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="Ім'я">
+            <div class="text-danger mt-1" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid">
+              <small>Ім'я обов'язкове</small>
+            </div>
+          </div>
+          <div class="col">
+            <label for="lastName" class="form-label">Прізвище</label>
+            <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Прізвище">
+            <div class="text-danger mt-1" *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid">
+              <small>Прізвище обов'язкове</small>
+            </div>
+          </div>
+        </div>
+
+      <!-- Password and Confirm Password -->
+      <div class="mb-3">
+          <label for="password" class="form-label">Пароль</label>
+          <input type="password" id="password" formControlName="password" class="form-control" placeholder="Пароль">
+          <div class="text-danger mt-1" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+            <small *ngIf="registerForm.get('password')?.errors?.['required']">Пароль обов'язковий</small>
+            <small *ngIf="registerForm.get('password')?.errors?.['minlength']">Мінімум 6 символів</small>
+          </div>
+        </div>
+
+      <!-- Image Upload -->
+      <div class="mb-3">
+        <label for="imageFile" class="form-label">Фото</label>
+        <input type="file" id="imageFile" (change)="onFileChange($event)" class="form-control" accept="image/*">
+        <div class="text-danger mt-1" *ngIf="registerForm.get('imageFile')?.touched && registerForm.get('imageFile')?.invalid">
+          <small>Фото обов'язкове</small>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-danger w-100" [disabled]="registerForm.invalid">Зареєструватися</button>
+
+    </form>
+  </div>
+</div>
